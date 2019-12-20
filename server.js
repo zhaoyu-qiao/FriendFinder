@@ -23,8 +23,8 @@ app.use(express.json());
 // points our server to a series of route files
 // the route files then provides the server a mapping between urls and specific files.
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // Listener
 // let the server listen on events happening on port, 
