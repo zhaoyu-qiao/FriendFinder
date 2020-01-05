@@ -13,14 +13,13 @@ module.exports = function (app) {
     // A POST routes /api/friends. 
     // This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
     app.post("/api/friends", function (req, res) {
-        // res.json(friendsData);
-        // friendsData.push(req.body);
-        // initial score difference
+
         let totalDifference = 0;
         let minDifference = 100;
         let bestMatch = {};
         let currentInput = req.body;
-        friendsData.forEach(user => {
+        console.log(req.body);
+        friendsData.forEach(function (user) {
 
             for (let i = 0; i < user.scores.length; i++) {
                 // something is wrong with this part
@@ -29,6 +28,8 @@ module.exports = function (app) {
             console.log("total difference ", user.name, totalDifference)
             if (totalDifference < minDifference) {
                 minDifference = totalDifference;
+                // !!clear totalDifference to 0 again to recalculate. Otherwise totalDifference keeps piling up.
+                totalDifference = 0;
                 console.log("min difference", minDifference);
                 // Do i need to send response for this too??
                 bestMatch = user;
@@ -38,10 +39,10 @@ module.exports = function (app) {
 
 
         })
-        // post user scores into api/friends
+        // post user information into api/friends
         friendsData.push(req.body);
 
-        // send back a response. This is crutial otherwise your front end js doesn't know what to do with the servrer.
+        // send back a response. !!!This is crutial otherwise your front end js doesn't know what to do with the servrer.
         res.json(bestMatch);
     })
 }

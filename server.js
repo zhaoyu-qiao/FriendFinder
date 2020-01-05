@@ -21,8 +21,8 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 // points our server to a series of route files
-// the route files then provides the server a mapping between urls and specific files.
-// tell that these functions required from another js is for server "app", this server.js can have more than one apps.
+// the route files then provides the server a mapping FUNCTION between urls and specific files.
+// tell that these FUNCTIONs required from another js is for server "app", this server.js can have more than one apps.
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
