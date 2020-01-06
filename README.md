@@ -1,4 +1,4 @@
-## FriendFinder
+# FriendFinder
 
 ## Introduction
 
@@ -13,14 +13,14 @@ A node app that allows a user to fill in a survey, and compare his/her answers t
 
 ## How the app was built
 
-# Firstly, the structure of the files needs to be defined clearly:
+### Firstly, the structure of the files needs to be defined clearly:
   The server.js file is at the root folder
   There are three folders in the root folder:
   data folder which holds the friends' inforamtion
   poublic folder which holds the html pages to display to users
   routing folder which holds the files to tell the server how to route user requests
 
-# Use npm to install and reference to "express", in order to handle different kind of http requests/responses.
+### Use npm to install and reference to "express", in order to handle different kind of http requests/responses.
 
 - Under data folder
   friends.js file contains an array of friends data, and exports them for reference.
@@ -31,7 +31,7 @@ A node app that allows a user to fill in a survey, and compare his/her answers t
 - Under routing folder
   There are two js files which exports two functions, with one of them guiding the server to handle requests to the html files, and the other guiding the server to handle api requests.
 
-# In the apiRoutes.js file, it contains the function to compare the difference between a user's score and the existing friends' score question by question, and sum up the total difference, this action will loop through all users which are stored in the friends array, in order to find the best match who has the minimum difference among all friends.
+### In the apiRoutes.js file, it contains the function to compare the difference between a user's score and the existing friends' score question by question, and sum up the total difference, this action will loop through all users which are stored in the friends array, in order to find the best match who has the minimum difference among all friends.
 
 - Set total score Difference(var totalDifference) to be 0 at the beggining of the comparison
 - Set a high value initially for the minimum Difference
@@ -39,7 +39,7 @@ A node app that allows a user to fill in a survey, and compare his/her answers t
 - Be sure to clear out the totalDifference score to 0 after each compare, otherwise this number will keep increasing, and your match will always be the first friend ever!
 - Server sends the best match friend's data back, so the js file can perform actions and display it on the web page!
 
-# A detailed capture is below:
+### A detailed capture is below:
 -  [Home](/image/home.png)
 -  [Survey](/image/survey.png)
 -  [Match](/image/match.png)
